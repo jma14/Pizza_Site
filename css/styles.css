@@ -1,0 +1,65 @@
+.menu-container {
+	position: absolute;
+	width: 100%;
+	top: 0;
+	left: 0;
+	margin: 0;
+	padding: 5px;
+	height: 75px;
+	background-color: grey;
+	text-align: center;
+}
+
+.menu {
+	min-width: 600px;
+	text-align: center;
+	list-style-type: none;
+	white-space: nowrap;
+	display: inline-block;
+}
+
+
+.menu li a {
+	position: relative;
+	display: inline-block;
+	color: black;
+	padding: 10px 15px;
+	width: 60px;
+	margin: auto;
+	text-align: center;
+	text-decoration: none;
+	float: left;
+	border: 2px solid darkblue;
+	border-radius: 2px;
+	background-color: lightblue;
+}
+
+.menu li a:hover {
+	background-color: darkgrey;
+	color: white;
+}
+
+.menu .active {
+	background-color: darkgrey;
+	color: white;
+}
+
+.pizza-container {
+	background-color: orange;
+	margin: 110px 5% 5% 5%;
+	border: 5px solid black;
+	border-radius: 10px;
+	height: 150px;
+	text-align: center;
+}
+
+.container {
+	background-color: orange;
+	margin: 5px 5% 5% 5%;
+	border: 5px solid black;
+	border-radius: 10px;
+	height: 150px;
+	text-align: center;
+}
+
+
