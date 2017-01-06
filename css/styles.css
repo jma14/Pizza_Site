@@ -1,4 +1,4 @@
-.menu-container {
+nav {
 	position: absolute;
 	width: 100%;
 	top: 0;
@@ -51,15 +51,68 @@
 	border-radius: 10px;
 	height: 150px;
 	text-align: center;
+	min-width: 500px;
 }
 
-.container {
+
+.outer-container {
 	background-color: orange;
 	margin: 5px 5% 5% 5%;
 	border: 5px solid black;
 	border-radius: 10px;
 	height: 150px;
 	text-align: center;
+	min-width: 500px;
 }
 
+.outer-container h4 {
+	margin-top: -20px;
+	margin-bottom: auto;
+}
+
+h2 {
+	margin-top: 5px;
+}
+
+.inner-container {
+	margin-top: 20px;
+}
+
+.btn-frame {
+	background-color: #fff;
+	margin: 5px 5% 5% 5%;
+	height: 50px;
+	text-align: center;
+	min-width: 500px;
+}
+
+button {
+	height: 30px;
+	width: 150px;
+	display: inline-block;
+	text-align: center;
+	background-color: lightblue;
+}
+
+button:hover {
+	cursor: pointer;
+}
+
+footer {
+	text-align: center;
+	min-width: 500px;
+
+}
+table, th, td {
+	border: 2px solid black;
+}
+
+th, td {
+	padding: 10px;
+}
+
+table {
+	text-align: center;
+	display: inline-block;
+}
 

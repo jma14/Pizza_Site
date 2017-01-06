@@ -8,37 +8,209 @@
 </html>
 <body>
 
+
 	<!-- Nav Bar -->
-	<div class="menu-container">
-		<ul class="menu">
-			<li><a href="#size">SIZE</li></a>
-			<li><a href="#meat">MEAT</li></a>
-			<li><a href="#cheese">CHEESE</li></a>
-			<li><a href="#crust">CRUST</li></a>
-			<li><a href="#sauce">SAUCE</li></a>
-			<li><a href="#veggies">VEGGIES</li></a>
-		</ul>
-	</div>
+	<header>
+		<nav>
+			<ul class="menu">
+				<li><a href="#size">SIZE</li></a>
+				<li><a href="#meat">MEAT</li></a>
+				<li><a href="#cheese">CHEESE</li></a>
+				<li><a href="#crust">CRUST</li></a>
+				<li><a href="#sauce">SAUCE</li></a>
+				<li><a href="#veggies">VEGGIES</li></a>
+			</ul>
+		</nav>
+	</header>
 	<!-- End Nav Bar -->
-
 	<div class="pizza-container">
-		
-		<h1>Pick A Size</h1>
-		<div id="pizza-size">
-			<br><br>
-			<input type="radio" name="p-size" value="personal" checked>Personal</input>&nbsp&nbsp&nbsp&nbsp
-			<input type="radio" name="p-size" value="small">Small</input>&nbsp&nbsp&nbsp&nbsp
-			<input type="radio" name="p-size" value="medium">Medium</input>&nbsp&nbsp&nbsp&nbsp
-			<input type="radio" name="p-size" value="large">Large</input>&nbsp&nbsp&nbsp
-			<input type="radio" name="p-size" value="x-large">Extra Large</input>&nbsp&nbsp&nbsp&nbsp
+		<h2>Pick A Size</h2>
+		<div class="inner-container">
+			<div id="pizza-size">
+				<input type="radio" name="p-size" value="personal" checked>Personal ($8.00)</input>&nbsp&nbsp&nbsp&nbsp
+				<input type="radio" name="p-size" value="medium">Medium ($10.00)</input>&nbsp&nbsp&nbsp&nbsp
+				<input type="radio" name="p-size" value="large">Large ($12.00)</input>&nbsp&nbsp&nbsp
+				<br><br>
+				<input type="radio" name="p-size" value="x-large">Extra Large ($14.00)</input>&nbsp&nbsp&nbsp&nbsp
+			</div>
 		</div>
 	</div>
 
-	<div class="container">
-		<div id="meat">
-			<h1>Pick Your Meat</h1>
+	<div class="outer-container">
+		<h2>Pick Your Meat</h2>
+		<h4>(+$1.00 ea after the first one)</h4>
+		<div class="inner-container">
+			<div id="meat">
+				<input type="checkbox" name="p-meat" value="pepperoni">Pepperoni</input>&nbsp&nbsp&nbsp
+				<input type="checkbox" name="p-meat" value="sausage">Sausage</input>&nbsp&nbsp&nbsp
+				<input type="checkbox" name="p-meat" value="bacon">Canadian Bacon</input>&nbsp&nbsp&nbsp
+				<br><br>
+				<input type="checkbox" name="p-meat" value="beef">Ground Beef</input>&nbsp&nbsp&nbsp
+				<input type="checkbox" name="p-meat" value="anchovy">Anchovy</input>&nbsp&nbsp&nbsp
+				<input type="checkbox" name="p-meat" value="chicken">Chicken</input>&nbsp&nbsp&nbsp
+			</div>
 		</div>
 	</div>
+
+	<div class="outer-container">
+		<h2>Pick Your Cheese</h2>
+		<div class="inner-container">
+			<div id="cheese">
+				<br><br>
+				<input type="radio" name="p-cheese" value="regular" checked>Regular</input>&nbsp&nbsp&nbsp&nbsp
+				<input type="radio" name="p-cheese" value="no-cheese">No Cheese</input>&nbsp&nbsp&nbsp&nbsp
+				<input type="radio" name="p-cheese" value="extra">Extra Cheese (+$3.00)</input>&nbsp&nbsp&nbsp&nbsp
+			</div>
+		</div>
+	</div>
+
+	<div class="outer-container">
+		<h2>Pick Your Crust</h2>
+		<div class="inner-container">
+			<div id="crust">	
+				<input type="radio" name="p-crust" value="plain" checked>Plain</input>&nbsp&nbsp&nbsp
+				<input type="radio" name="p-crust" value="garlic">Garlic Butter</input>&nbsp&nbsp&nbsp
+				<input type="radio" name="p-crust" value="stuffed">Cheese Stuffed Crust (+$3.00)</input>&nbsp&nbsp&nbsp
+				<br><br>
+				<input type="radio" name="p-crust" value="spicy">Spicy</input>&nbsp&nbsp&nbsp
+				<input type="radio" name="p-crust" value="house">House Special</input>&nbsp&nbsp&nbsp
+			</div>
+		</div>
+	</div>
+
+	<div class="outer-container">
+		<h2>Pick Your Sauce</h2>
+		<div class="inner-container">
+			<div id="sauce">
+				<br><br>
+				<input type="radio" name="p-sauce" value="marinara" checked>Marinara</input>&nbsp&nbsp&nbsp
+				<input type="radio" name="p-sauce" value="white-sauce">White Sauce</input>&nbsp&nbsp&nbsp
+				<input type="radio" name="p-sauce" value="bbq">Barbeque</input>&nbsp&nbsp&nbsp
+				<input type="radio" name="p-sauce" value="no-sauce">No Sauce</input>&nbsp&nbsp&nbsp
+			</div>
+		</div>
+	</div>
+
+		<div class="outer-container">
+		<h2>Pick Your Veggies</h2>
+		<h4>(+$1.00 ea after the first one)</h4>
+		<div class="inner-container">
+			<div id="veggies">
+				<input type="checkbox" name="p-veggies" value="tomato">Tomatoes</input>&nbsp&nbsp&nbsp
+				<input type="checkbox" name="p-veggies" value="onion">Onions</input>&nbsp&nbsp&nbsp
+				<input type="checkbox" name="p-veggies" value="gr-pepper">Green Peppers</input>&nbsp&nbsp&nbsp
+				<input type="checkbox" name="p-veggies" value="mushroom">Mushrooms</input>&nbsp&nbsp&nbsp
+				<br><br>
+				<input type="checkbox" name="p-veggies" value="pineapple">Pineapple</input>&nbsp&nbsp&nbsp
+				<input type="checkbox" name="p-veggies" value="spinach">Spinach</input>&nbsp&nbsp&nbsp
+				<input type="checkbox" name="p-veggies" value="jalapeno">Jalapeno</input>&nbsp&nbsp&nbsp
+			</div>
+		</div>
+	</div>
+
+	<div class="btn-frame">
+		<button type="button" onclick="CalcOrder();">Place Order</button>
+	</div>
+
+	<footer>
+		<div class="receipt">
+			<table>
+				<tr>
+					<th>Size</th>
+					<td id="psize">Personal</td>
+					<th id="psizecost">$8.00</th>
+				</tr>
+				<tr>
+					<th>Meat</th>
+					<td id="pmeat">None</td>
+					<th id="pmeatcost">$0.00</th>
+				</tr>
+				<tr>
+					<th>Cheese</th>
+					<td id="pcheese">Regular</td>
+					<th id="pcheesecost">$0.00</th>
+				</tr>
+				<tr>
+					<th>Crust</th>
+					<td id="pcrust">Plain</td>
+					<th id="pcrustcost">$0.00</th>
+				</tr>
+				<tr>
+					<th>Sauce</th>
+					<td id="psauce">Marinara</td>
+					<th id="psaucecost">$0.00</th>
+				</tr>
+				<tr>
+					<th>Veggies</th>
+					<td id="pveggies">None</td>
+					<th id="pveggiescost">$0.00</th>
+				</tr>
+				<tr>
+					<th>Total Cost</th>
+					<td></td>
+					<th id="totalcost">$8.00</th>
+				</tr>
+			</table>
+		</div>
+	</footer>
+
+
+	<script>
+		
+		var psize = document.getElementById("psize");
+		var psizecost = document.getElementById("psizecost");
+
+		//var pmeat = document.getElementById("pmeat");
+		//var pmeatcost = document.getElementByid("pmeatcost");
+
+		var pcheese = document.getElementById("pcheese");
+		var pcheesecost = document.getElementById("pcheesecost");
+
+		var pcrust = document.getElementById("pcrust");
+		var pcrustcost = document.getElementById("pcrustcost");
+
+		var psauce = document.getElementById("psauce");
+		var psaucecost = document.getElementById("psaucecost");
+
+		//var pveggies = document.getElementById("pveggies");
+		//var pveggiescost = document.getElementByid("pveggiescost");
+
+
+
+		function CalcOrder() {
+			var p_size = document.querySelector('input[name="p-size"]:checked').value;
+			//var pmeat
+			var p_cheese = document.querySelector('input[name="p-cheese"]:checked').value;
+			var p_crust = document.querySelector('input[name="p-crust"]:checked').value;
+			var p_sauce = document.querySelector('input[name="p-sauce"]:checked').value;
+			//var pveggies
+
+			var p_sizecost = 8;
+			psize.innerHTML = "Personal";
+			if(p_size == "medium") {
+				psize.innerHTML = "Medium";
+				p_sizecost = p_sizecost + 2;
+			} else if(p_size == "large") {
+				psize.innerHTML = "Large";
+				p_sizecost = p_sizecost + 4;
+			} else if(p_size == "x-large") {
+				psize.innerHTML = "Extra Large";
+				p_sizecost = p_sizecost + 6;
+			};
+			psizecost.innerHTML = "$" + p_sizecost.toFixed(2);
+
+			var p_cheesecost = 0;
+			pcheese.innerHTML = "Regular";
+			if(p_cheese = "no-cheese") {
+				pcheese.innerHTML = "No Cheese";
+			else if(p_cheese = "extra") {
+				pcheese.innerHTML = "Extra Cheese";
+				p_cheesecost = 3;
+			};
+			pcheesecost.innerHTML = "$" + p_cheesecost.toFixed(2);
+
+		};
+	</script>
 
 
 
