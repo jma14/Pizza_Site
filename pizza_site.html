@@ -23,6 +23,9 @@
 		</nav>
 	</header>
 	<!-- End Nav Bar -->
+
+
+	<!-- Pizza Size Choices -->
 	<div class="pizza-container">
 		<h2>Pick A Size</h2>
 		<div class="inner-container">
@@ -35,23 +38,27 @@
 			</div>
 		</div>
 	</div>
+	<!-- End Pizza Size Choices -->
 
+	<!-- Meat Choices -->
 	<div class="outer-container">
 		<h2>Pick Your Meat</h2>
 		<h4>(+$1.00 ea after the first one)</h4>
 		<div class="inner-container">
 			<div id="meat">
-				<input type="checkbox" name="p-meat" value="pepperoni">Pepperoni</input>&nbsp&nbsp&nbsp
-				<input type="checkbox" name="p-meat" value="sausage">Sausage</input>&nbsp&nbsp&nbsp
-				<input type="checkbox" name="p-meat" value="bacon">Canadian Bacon</input>&nbsp&nbsp&nbsp
+				<input type="checkbox" name="p-meat">Pepperoni</input>&nbsp&nbsp&nbsp
+				<input type="checkbox" name="p-meat">Sausage</input>&nbsp&nbsp&nbsp
+				<input type="checkbox" name="p-meat">Canadian Bacon</input>&nbsp&nbsp&nbsp
 				<br><br>
-				<input type="checkbox" name="p-meat" value="beef">Ground Beef</input>&nbsp&nbsp&nbsp
-				<input type="checkbox" name="p-meat" value="anchovy">Anchovy</input>&nbsp&nbsp&nbsp
-				<input type="checkbox" name="p-meat" value="chicken">Chicken</input>&nbsp&nbsp&nbsp
+				<input type="checkbox" name="p-meat">Ground Beef</input>&nbsp&nbsp&nbsp
+				<input type="checkbox" name="p-meat">Anchovy</input>&nbsp&nbsp&nbsp
+				<input type="checkbox" name="p-meat">Chicken</input>&nbsp&nbsp&nbsp
 			</div>
 		</div>
 	</div>
+	<!-- End Meat Choices -->
 
+	<!-- Cheese Choices -->
 	<div class="outer-container">
 		<h2>Pick Your Cheese</h2>
 		<div class="inner-container">
@@ -63,7 +70,9 @@
 			</div>
 		</div>
 	</div>
+	<!-- End Cheese Choices -->
 
+	<!-- Crust Choices -->
 	<div class="outer-container">
 		<h2>Pick Your Crust</h2>
 		<div class="inner-container">
@@ -77,7 +86,9 @@
 			</div>
 		</div>
 	</div>
+	<!-- End Crust Choices -->
 
+	<!-- Sauce Choices -->
 	<div class="outer-container">
 		<h2>Pick Your Sauce</h2>
 		<div class="inner-container">
@@ -90,8 +101,10 @@
 			</div>
 		</div>
 	</div>
+	<!-- End Sauce Choices -->
 
-		<div class="outer-container">
+	<!-- Veggies Choices -->
+	<div class="outer-container">
 		<h2>Pick Your Veggies</h2>
 		<h4>(+$1.00 ea after the first one)</h4>
 		<div class="inner-container">
@@ -107,11 +120,15 @@
 			</div>
 		</div>
 	</div>
+	<!-- End Veggies Choices -->
 
+	<!-- Order Button -->
 	<div class="btn-frame">
 		<button type="button" onclick="CalcOrder();">Place Order</button>
 	</div>
+	<!-- End Order Button -->
 
+	<!-- Receipt Display -->
 	<footer>
 		<div class="receipt">
 			<table>
@@ -138,7 +155,7 @@
 				<tr>
 					<th>Sauce</th>
 					<td id="psauce">Marinara</td>
-					<th id="psaucecost">$0.00</th>
+					<th>$0.00</th>
 				</tr>
 				<tr>
 					<th>Veggies</th>
@@ -153,15 +170,17 @@
 			</table>
 		</div>
 	</footer>
+	<!-- End Receipt Display -->
 
 
 	<script>
 		
+		//collect locations in the table for choices and prices
 		var psize = document.getElementById("psize");
 		var psizecost = document.getElementById("psizecost");
 
-		//var pmeat = document.getElementById("pmeat");
-		//var pmeatcost = document.getElementByid("pmeatcost");
+		var pmeat = document.getElementById("pmeat");
+		var pmeatcost = document.getElementById("pmeatcost");
 
 		var pcheese = document.getElementById("pcheese");
 		var pcheesecost = document.getElementById("pcheesecost");
@@ -170,23 +189,29 @@
 		var pcrustcost = document.getElementById("pcrustcost");
 
 		var psauce = document.getElementById("psauce");
-		var psaucecost = document.getElementById("psaucecost");
 
-		//var pveggies = document.getElementById("pveggies");
-		//var pveggiescost = document.getElementByid("pveggiescost");
+		var pveggies = document.getElementById("pveggies");
+		var pveggiescost = document.getElementById("pveggiescost");
+
+		var totalcost = document.getElementById("totalcost");		
 
 
-
+		//function to calculate order
 		function CalcOrder() {
+
+			//get all values from checkboxes and radio buttons
 			var p_size = document.querySelector('input[name="p-size"]:checked').value;
-			//var pmeat
+			var p_meatboxes = document.getElementsByName("p-meat");
 			var p_cheese = document.querySelector('input[name="p-cheese"]:checked').value;
 			var p_crust = document.querySelector('input[name="p-crust"]:checked').value;
 			var p_sauce = document.querySelector('input[name="p-sauce"]:checked').value;
-			//var pveggies
+			var p_veggiesboxes = document.getElementsByName("p-veggies");
 
+			
+			
+			
+			//get cost and size of pizza size and display in table
 			var p_sizecost = 8;
-			psize.innerHTML = "Personal";
 			if(p_size == "medium") {
 				psize.innerHTML = "Medium";
 				p_sizecost = p_sizecost + 2;
@@ -198,19 +223,102 @@
 				p_sizecost = p_sizecost + 6;
 			};
 			psizecost.innerHTML = "$" + p_sizecost.toFixed(2);
+			
 
+			//get list of checkboxes for meat, iterate through to see which are checked and get corresponding meats from array, put in table along with cost
+			var p_meatcost = 0;
+			var p_meatcount = 0;
+			var p_meatchosen ="";
+			var meatchoices = ["Pepperoni", "Sausage", "Canadian Bacon", "Ground Beef", "Anchovy", "Chicken"];
+			for(var i=0;i<p_meatboxes.length;i++) {
+				if(p_meatboxes[i].checked) {
+					if(p_meatcount > 0) {
+						p_meatchosen = p_meatchosen + ", ";
+					};
+					p_meatchosen = p_meatchosen + meatchoices[i];
+					p_meatcount++;
+				};
+			};
+			if(p_meatcount > 0) {
+				p_meatcount = p_meatcount - 1;
+				pmeat.innerHTML = p_meatchosen;
+			} else {
+				pmeat.innerHTML = "None";
+			};
+			pmeatcost.innerHTML = "$" + p_meatcount.toFixed(2);
+			
+
+
+			//get cheese choice and cost of cheese choice and display in table
 			var p_cheesecost = 0;
-			pcheese.innerHTML = "Regular";
-			if(p_cheese = "no-cheese") {
+			if(p_cheese == "no-cheese") {
 				pcheese.innerHTML = "No Cheese";
-			else if(p_cheese = "extra") {
+			} else if(p_cheese == "extra") {
 				pcheese.innerHTML = "Extra Cheese";
-				p_cheesecost = 3;
+				p_cheesecost = p_cheesecost + 3;
 			};
 			pcheesecost.innerHTML = "$" + p_cheesecost.toFixed(2);
+			
 
+			//get crust choice and cost of crust choice and display in table
+			var p_crustcost = 0;
+			if(p_crust == "garlic") {
+				pcrust.innerHTML = "Garlic Butter";
+			} else if(p_crust == "stuffed") {
+				pcrust.innerHTML = "Cheese Stuffed Crust";
+				p_crustcost = p_crustcost + 3;
+			} else if(p_crust == "spicy") {
+				pcrust.innerHTML = "Spicy";
+			} else if(p_crust == "house") {
+				pcrust.innerHTML = "House Special";
+			};
+			pcrustcost.innerHTML = "$" + p_crustcost.toFixed(2);
+
+
+			//get sauce choice and cost of sauce choice and display in table
+			var p_saucecost = 0;
+			if(p_sauce == "white-sauce") {
+				psauce.innerHTML = "White Sauce";
+			} else if(p_sauce == "bbq") {
+				psauce.innerHTML = "Barbeque";
+			} else if(p_sauce == "no-sauce") {
+				psauce.innerHTML = "No Sauce";
+			};
+
+
+			//get list of checkboxes for veggies, iterate through to see which are checked and get corresponding meats from array, put in table along with cost
+			var p_veggiescost = 0;
+			var p_veggiescount = 0;
+			var p_veggieschosen ="";
+			var veggieschoices = ["Tomatoes", "Onions", "Green Peppers", "Mushrooms", "Pineapple", "Spinach", "Jalapeno"];
+			if(p_veggiesboxes.length > 0) {
+				for(var i=0;i<p_veggiesboxes.length;i++) {
+					if(p_veggiesboxes[i].checked) {
+						if(p_veggiescount > 0) {
+							p_veggieschosen = p_veggieschosen + ", ";
+						};
+						p_veggieschosen = p_veggieschosen + veggieschoices[i];
+						p_veggiescount++;
+					};
+				};
+				if(p_veggiescount > 0) {
+					p_veggiescount = p_veggiescount - 1;
+					pveggies.innerHTML = p_veggieschosen;
+				} else {
+					pveggies.innerHTML = "None";
+				};
+			};
+			pveggiescost.innerHTML = "$" + p_veggiescount.toFixed(2);
+			
+
+			//add all costs together and display as total.  meatcount and veggie count have been adjusted to be cost (subtracted 1, if necessary, as cost = number of meat or veggies - 1)
+			totalcost.innerHTML = "$" + (p_sizecost + p_meatcount + p_cheesecost + p_crustcost + p_veggiescount).toFixed(2);
 		};
+
+
 	</script>
+
+
 
 
 
